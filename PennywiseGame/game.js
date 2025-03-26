@@ -1,11 +1,23 @@
-import EnterenceTile from "./EnterenceTile.js";
 
-export default class Game extends Phaser.Scene {
-    constructor() {
-        super({ key: "Game" });
+const config = {
+  type: Phaser.AUTO,
+  width: 640, 
+  height: 640, 
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 0 },
+      debug: true
     }
+  },
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  backgroundColor: '#555555',
+  pixelArt: true,
+  scene: [EnterenceTile, SecondTile, FinalTile]
+};
 
-    create() {
-        this.scene.start("EnterenceTile");  // ✅ FIXED: Ensure correct scene name
-    }
-}
+new Phaser.Game(config);
+

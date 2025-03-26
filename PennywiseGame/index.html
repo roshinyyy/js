@@ -1,40 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pennywise 2D Game</title>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <title>Title of the Game</title>
+
+    <script type="text/javascript" src="../phaser.min.js"></script>
+    <script type="text/javascript" src="EnterenceTile.js"></script>
+    <script type="text/javascript" src="SecondTile.js"></script>
+    <script type="text/javascript" src="FinalTile.js"></script>
+    
+    <script type="text/javascript" src="game.js"></script>
+
+    
+    </style>
 </head>
+
 <body>
-    <script>
-        // Fix getImageData warning (Phaser canvas optimization)
-        HTMLCanvasElement.prototype.getContext = (function(original) {
-            return function(type, attributes) {
-                if (type === "2d") {
-                    attributes = { ...attributes, willReadFrequently: true };
-                }
-                return original.call(this, type, attributes);
-            };
-        })(HTMLCanvasElement.prototype.getContext);
-    </script>
-
-    <script type="module">
-        import Game from "./Game.js";
-        import EnterenceTile from "./EnterenceTile.js";
-
-        const config = {
-            type: Phaser.AUTO,
-            width: 800,
-            height: 600,
-            physics: {
-                default: "arcade",
-                arcade: { debug: false }
-            },
-            scene: [Game, EnterenceTile]  // ✅ FIXED: Ensure EnterenceTile is included
-        };
-
-        new Phaser.Game(config);
-    </script>
 </body>
+
 </html>
