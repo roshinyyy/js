@@ -6,19 +6,19 @@
  <tileset firstgid="1" name="tileset1" tilewidth="32" tileheight="32" tilecount="756" columns="21">
   <image source="tileset1.png" width="700" height="1166"/>
  </tileset>
- <tileset firstgid="757" name="tileset 3" tilewidth="32" tileheight="32" tilecount="572" columns="26">
-  <image source="tileset 3.png" width="850" height="705"/>
+ <tileset firstgid="757" name="tileset3" tilewidth="32" tileheight="32" tilecount="572" columns="26">
+  <image source="tileset3.png" width="850" height="705"/>
  </tileset>
  <tileset firstgid="1329" name="tileset2" tilewidth="32" tileheight="32" tilecount="3478" columns="94">
   <image source="tileset2.png" width="3029" height="1184"/>
  </tileset>
- <tileset firstgid="4807" name="tileset 4" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
-  <image source="tileset 4.png" width="1024" height="1024"/>
+ <tileset firstgid="4807" name="tileset4" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+  <image source="tileset4.png" width="1024" height="1024"/>
  </tileset>
  <tileset firstgid="5831" name="pipoya" tilewidth="32" tileheight="32" tilecount="1064" columns="8">
   <image source="pipoya.png" width="256" height="4256"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="59" height="32">
+ <layer id="1" name="originalfloor" width="59" height="32">
   <data encoding="csv">
 1073742560,3221226208,1610612737,1610612758,1610612779,1610612800,1610612821,1610612842,1610612863,1610612884,1610612905,1610612926,1610612947,1610612968,1610612989,1610613010,1610613031,1610613052,1610613073,1610613094,1610613115,1610613136,2684354584,2684354563,536870914,536870935,1610613241,1610613262,1610613283,1610612737,1610612758,1610612779,1610612800,1610612821,1610612842,1610612863,1610612884,1610612905,1610612926,1610612947,1610612968,1610612989,1610613010,1610613031,1610613052,1610613073,1610613094,1610613115,1610613136,1610613157,1610613178,1610613199,1610613220,1610613241,1610613262,1610613283,1610613304,3221226124,3221226124,
 1073742539,3221226187,5533,5533,5533,5533,5533,5533,5533,5600,5601,5600,5601,5600,5601,5600,5601,5600,5601,5600,5600,5601,2684354585,2684354564,536870915,536870936,57,58,57,58,57,58,57,58,329,329,329,329,329,329,329,329,329,329,329,329,329,329,329,330,329,329,329,329,330,330,330,3221226103,3221226103,

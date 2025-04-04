@@ -1,23 +1,23 @@
 
-const config = {
+let config = {
   type: Phaser.AUTO,
-  width: 640, 
-  height: 640, 
+  // pixel size * tile map size * zoom
+  width: 800,
+  height: 600,
   physics: {
-    default: 'arcade',
+    default: "arcade",
     arcade: {
-      gravity: { y: 0 },
-      debug: true
-    }
+      gravity: false,
+      debug: true,
+    },
   },
   scale: {
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
+    autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  backgroundColor: '#555555',
+  backgroundColor: "#555555",
   pixelArt: true,
   scene: [EnterenceTile, SecondTile, FinalTile]
 };
 
-new Phaser.Game(config);
-
+let game = new Phaser.Game(config);
