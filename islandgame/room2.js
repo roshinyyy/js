@@ -366,23 +366,35 @@ class room2 extends Phaser.Scene {
       });
   }
 
-  handlePlayerHit(player, enemy) {
+handlePlayerHit(player, enemy) {
     if (this.playerHit) return;
+
     this.lives--;
     this.updateLivesDisplay();
     this.playerHit = true;
     player.setTint(0xff0000);
 
+    // Stop enemy movement temporarily
+    if (enemy) {
+        enemy.body.velocity.x = 0;
+        enemy.body.velocity.y = 0;
+    }
+
     if (this.lives <= 0) {
-      this.scene.start("GameOverScene");
-      return;
+        this.scene.start("GameOverScene");
+        return;
     }
 
     this.time.delayedCall(1500, () => {
-      this.playerHit = false;
-      player.clearTint();
+        this.playerHit = false;
+        player.clearTint();
+
+        // Resume enemy movement
+        if (enemy === this.gorilla) this.gorillaDirection = 1;
+        if (enemy === this.monkey) this.monkeyDirection = 1;
     });
-  }
+}
+
 
   collectItem(player, item) {
     if (!item) return;
