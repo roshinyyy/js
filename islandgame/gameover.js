@@ -1,37 +1,45 @@
-﻿class gameOver extends Phaser.Scene {
-  constructor() {
-    super("gameOver");
-  }
+﻿class GameOverScene extends Phaser.Scene {
+    constructor() {
+        super({ key: "GameOverScene" });
+    }
 
-preload() {
-  this.load.image("lostImg", "assets/lost.jpg");
+    preload() {
+        this.load.image("gameover", "assets/gameover.jpg");
+    }
 
-}
+    create(data) {
+        const { width, height } = this.scale;
 
-create() {
-  console.log("*** gameOver scene");
-   this.scene.bringToTop("gameOver");
+        // Check if the player collected all items (total 9)
+        const totalCollected =
+            (data.itemCounts?.axe || 0) +
+            (data.itemCounts?.hammer || 0) +
+            (data.itemCounts?.medkit || 0);
 
-  // Add image and detect spacebar keypress
-  this.add.image(0, 0, 'lostImg').setOrigin(0, 0);
+        if (totalCollected >= 9) {
+            // Player collected all items, go to WinningScene
+            this.scene.start("WinningScene", {
+                health: data.health || 3,
+                axe: data.axe || true,
+                hammer: data.hammer || true,
+                medkit: data.medkit || true,
+                itemCounts: data.itemCounts || { axe: 3, hammer: 3, medkit: 3 },
+            });
+            return; // Exit this scene
+        }
 
-  // Check for spacebar or any key here
-  let enterDown = this.input.keyboard.addKey("ENTER");
+        // Show the regular Game Over image
+        this.add.image(width / 2, height / 2, "gameover").setOrigin(0.5).setScale(0.7);
 
-  // On spacebar event, call the world scene
-  enterDown.on("down", function () {
-  console.log("Jump to world scene");
-  // Reset health and items
-  window.heart = 3;
-  window.milk = 0;
-  // window.powder = 0;
-  // window.butter = 0;
-  
-  this.scene.start("world");
-    },
-    this
-  );
-  
-  }
+        // Optional: restart instruction
+        this.add.text(width / 2, height - 200, "Press SPACE to Restart", {
+            fontSize: "32px",
+            fill: "#000000ff"
+        }).setOrigin(0.5);
 
+        // Restart the game on SPACE
+        this.input.keyboard.once("keydown-SPACE", () => {
+            this.scene.start("world", { health: 3 });
+        });
+    }
 }

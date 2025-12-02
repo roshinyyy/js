@@ -1,11 +1,11 @@
-﻿// --- now the game config ---
+﻿// --- Game config ---
 var config = {
   type: Phaser.AUTO,
   width: 32 * 20,
   height: 32 * 20,
   physics: {
     default: "arcade",
-    arcade: { debug: true },
+    arcade: { debug: false  },
   },
   scale: {
     mode: Phaser.Scale.FIT,
@@ -13,7 +13,16 @@ var config = {
   },
   backgroundColor: "#4315a7ff",
   pixelArt: true,
-  scene: [world, room1,], 
+
+  // Correctly reference class names
+  scene: [main, StoryScene, instruction, howtoplay, world, room1, room2, WinningScene, GameOverScene],
 };
 
+// Create the game
 var game = new Phaser.Game(config);
+
+// Global variables
+window.heart = 3;
+window.axe = 0;
+window.medkit = 0;
+window.hammer = 0;
