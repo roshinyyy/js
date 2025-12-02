@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="53" height="36" tilewidth="32" tileheight="32" infinite="0" nextlayerid="19" nextobjectid="16">
+ <editorsettings>
+  <export target="map3.tmj" format="json"/>
+ </editorsettings>
  <tileset firstgid="1" name="11_Camping_32x32" tilewidth="32" tileheight="32" tilecount="5408" columns="32">
   <image source="11_Camping_32x32.png" width="1024" height="5408"/>
  </tileset>
